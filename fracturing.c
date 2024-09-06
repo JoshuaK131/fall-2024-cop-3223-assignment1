@@ -1,6 +1,7 @@
 #include <stdio.h>
 #define PI 3.14159
 
+// Prototypes for all called upon functions
 double calculateDistance ();
 double calculatePerimeter ();
 double calculateArea();
@@ -11,7 +12,7 @@ double calculateRadius();
 double mathForDistance();
 
 
-int main (int arge, char **argv) {
+int main (int arge, char **argv) { // Calls all functions for assignment
     calculateDistance();
     calculatePerimeter();
     calculateArea();
@@ -22,11 +23,12 @@ int main (int arge, char **argv) {
  }
 
  double askForUserInput() {
-    static int counter = 0;
-    static double x1, x2, y1, y2;
+    static int counter = 0; // How many times the function is called
+    static double x1, x2, y1, y2; // Store input values
     double input;
     scanf("%lf", &input);
 
+    // Return value based on increment of function called
     if (counter == 0) {
         x1 = input;
     } else if (counter == 1) {
@@ -36,9 +38,10 @@ int main (int arge, char **argv) {
     } else if (counter == 3) {
         y2 = input;
     }
-    counter++;
+    counter++; // Increase the increment
     return input;
  }
+ // The five necessary functions for the assignment
 double calculateDistance() {
     double distance = mathForDistance();
     printf("The distance between the two points is %lf\n", distance);
@@ -77,13 +80,14 @@ double calculateDistance() {
 
     return 1;
  }
+// Additional functions used for calculations
  double calculateRadius() {
     double distance = mathForDistance();
     double radius = distance / 2.0;
 
     return radius;
  }
- double mathForDistance() {
+ double mathForDistance() { // Seperated from calculateDistance so printf statements are repeated for each function
     double x1 = askForUserInput();
     double x2 = askForUserInput();
     double y1 = askForUserInput();
